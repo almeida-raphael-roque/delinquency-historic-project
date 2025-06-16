@@ -1,0 +1,217 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 624.036577456017,
+        "y": 163.62912827895559
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1590.2431409625174,
+            "y": 590.34760770082062
+          },
+          "nodeIndex": "Login_senha",
+          "nodeLineageTag": "13bb6db8-f6c9-42cf-bc97-02854faf2bb6",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 1587.5365496880456,
+            "y": 0
+          },
+          "nodeIndex": "par_senha",
+          "nodeLineageTag": "64170fa7-e5d7-46ce-95ea-2c6ffe5ab994",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1591.7314274091837,
+            "y": 460.249908582762
+          },
+          "nodeIndex": "data att",
+          "nodeLineageTag": "39df87bb-4ab1-464b-9ec8-28bba364217d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 307.330252154427,
+            "y": 880.665752090628
+          },
+          "nodeIndex": "_dCalendario",
+          "nodeLineageTag": "fd47081e-984f-458c-aaf7-dd41d509407b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1589.9163984162119,
+            "y": 163.66047492999655
+          },
+          "nodeIndex": "_medidas_",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1875.7314274091837,
+            "y": 693.62192686893263
+          },
+          "nodeIndex": "TopN Table",
+          "nodeLineageTag": "5ece11af-e080-428a-a0f2-5cd440054403",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 573.83994447009343,
+            "y": 426.00302898061784
+          },
+          "nodeIndex": "fInadimplencia",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 931.34018902709909,
+            "y": 633.83670833422207
+          },
+          "nodeIndex": "fPagamentos",
+          "nodeLineageTag": "fce9bb06-9581-400d-9850-0593dd260571",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2159.7314274091837,
+            "y": 705.62192686893263
+          },
+          "nodeIndex": "Login_senha_complementar (Login)",
+          "nodeLineageTag": "b7d61cd1-6599-484d-a8b4-afa191b4c55a",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 2443.7314274091837,
+            "y": 705.62192686893263
+          },
+          "nodeIndex": "Login_senha_complementar (Senha)",
+          "nodeLineageTag": "0498c388-b17e-4634-907a-eed53889d8c4",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 2727.7314274091837,
+            "y": 657.62192686893263
+          },
+          "nodeIndex": "fAtivos",
+          "nodeLineageTag": "2b3ff236-7673-4db0-b487-370c2089cbd4",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 62.336089590424258,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 13,
+            "y": 67
+          },
+          "nodeIndex": "Login_senha_complementar (Login)",
+          "nodeLineageTag": "b7d61cd1-6599-484d-a8b4-afa191b4c55a",
+          "size": {
+            "height": 145,
+            "width": 332
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 19,
+            "y": 246
+          },
+          "nodeIndex": "Login_senha_complementar (Senha)",
+          "nodeLineageTag": "0498c388-b17e-4634-907a-eed53889d8c4",
+          "size": {
+            "height": 145,
+            "width": 336
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 457,
+            "y": 131
+          },
+          "nodeIndex": "Login_senha",
+          "nodeLineageTag": "d11e0616-af03-4c99-8c5d-976306dcaf2a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Login senha",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

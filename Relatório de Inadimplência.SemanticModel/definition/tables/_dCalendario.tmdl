@@ -1,0 +1,106 @@
+table _dCalendario
+	lineageTag: fd47081e-984f-458c-aaf7-dd41d509407b
+
+	column Date
+		formatString: Short Date
+		lineageTag: 678b5e55-7d91-4667-a6aa-90278c6fdf3e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: a4810f7a-0257-4e96-97f6-b30c18f8428e
+			defaultHierarchy: LocalDateTable_13a6b7d6-f8ec-40fd-8805-5bf7f36b01e5.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR
+		formatString: 0
+		lineageTag: a30af79f-05ac-47bc-882e-5dbca66c0cc4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [YEAR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH
+		formatString: 0
+		lineageTag: 7bec5831-2426-4517-b774-2900e694ab9f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MONTH]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MES ANO' =
+			
+			_dCalendario[Mês] & "/" & RIGHT(_dCalendario[YEAR],2)
+		lineageTag: 9f33f516-0e88-4d34-9235-cbff7f149929
+		summarizeBy: none
+		sortByColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês =
+			UPPER(
+			    FORMAT(
+			    _dCalendario[Date],
+			    "MMMM","pt-BR")
+			)
+		lineageTag: 0c436ef7-af88-4156-8442-2802713200d8
+		summarizeBy: none
+		sortByColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Counter' = DATEDIFF(MIN(_dCalendario[Date]),_dCalendario[Date],MONTH)+MONTH(MIN(_dCalendario[Date]))
+		formatString: 0
+		lineageTag: a6b89298-dded-430f-836a-ec28049ee6e2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data =
+			FORMAT(
+			DAY(_dCalendario[Date])
+			&
+			"/"
+			&
+			MONTH(_dCalendario[Date])
+			&
+			"/"
+			&
+			YEAR(_dCalendario[Date]),
+			"dd/mm/yyyy")
+		lineageTag: 376ccf80-3ef0-4400-b8e1-8a0b8fc227d5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'YEAR Hierarchy'
+		lineageTag: dd94a28f-cfb0-4a2a-8c08-da425b49562a
+
+		level Ano
+			lineageTag: 393d36ef-d10f-4a2b-90a1-f880434593f2
+			column: YEAR
+
+		level Mês
+			lineageTag: c8a2cc71-6888-4233-ae79-4c76a8000274
+			column: Mês
+
+	partition _dCalendario = calculated
+		mode: import
+		source = ```
+				ADDCOLUMNS(
+				    CALENDAR(MIN(fInadimplencia[DATA_VENCIMENTO]), MAX(fInadimplencia[DATA_VENCIMENTO])
+				    ),
+				    "YEAR", YEAR([Date]),
+				    "MONTH", MONTH([Date]))
+				
+				    
+				
+				```
+
+	annotation PBI_Id = 3ee7b6dfa3f846daa1e6f26138539eae
+

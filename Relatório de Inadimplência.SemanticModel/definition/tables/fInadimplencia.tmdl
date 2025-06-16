@@ -1,0 +1,259 @@
+table fInadimplencia
+	lineageTag: a868fb3d-488b-4a67-9ef2-cf1dc9099c22
+
+	column MATRICOOP = fInadimplencia[PARENT] & " " & fInadimplencia[ASSOCIADO]
+		lineageTag: e2d73f2c-9b96-464c-8d42-31864b3f4648
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_conjunto
+		dataType: string
+		lineageTag: 97cc9bb5-a67a-4690-b10a-f6ba32c30205
+		summarizeBy: none
+		sourceColumn: id_conjunto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cooperativa_num
+		dataType: string
+		lineageTag: a10c6151-6e99-4f97-9c64-d10e1a834bc8
+		summarizeBy: none
+		sourceColumn: cooperativa_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_cadastro
+		dataType: string
+		lineageTag: c047a3e5-a437-457f-b748-5af28652534b
+		summarizeBy: none
+		sourceColumn: codigo_cadastro
+
+		annotation SummarizationSetBy = Automatic
+
+	column associado
+		dataType: string
+		lineageTag: 739b327d-2af7-43f2-9e8d-72bc5a366706
+		summarizeBy: none
+		sourceColumn: associado
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo
+		dataType: string
+		lineageTag: 3124d5d5-e460-4ec6-9e4f-03eb10010c88
+		summarizeBy: none
+		sourceColumn: grupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column aplicacao_financeira
+		dataType: string
+		lineageTag: 68260d91-a778-4853-9fed-46055ce0392c
+		summarizeBy: none
+		sourceColumn: aplicacao_financeira
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_emissao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3ee0803e-b90b-44d4-8e99-fb7352a0f2e1
+		summarizeBy: none
+		sourceColumn: data_emissao
+
+		variation Variation
+			isDefault
+			relationship: 8ae72453-a37c-44b2-a01b-d1bf29e98126
+			defaultHierarchy: LocalDateTable_e79cf89e-3a58-427e-a47e-b3d3742f0097.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column data_vencimento
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4db99023-9fb9-44df-904a-d7bf9c46afc4
+		summarizeBy: none
+		sourceColumn: data_vencimento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valor_titulo
+		dataType: double
+		lineageTag: 7b6008ed-fcfd-4640-ac6f-a4f3086b7626
+		summarizeBy: sum
+		sourceColumn: valor_titulo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column codigo
+		dataType: string
+		lineageTag: 4dc36388-8b5f-43cd-913d-50e8e0d379ef
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column unidade
+		dataType: string
+		lineageTag: a2c8a308-c13d-49be-8d20-05915185fa9a
+		summarizeBy: none
+		sourceColumn: unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column descricao
+		dataType: string
+		lineageTag: b8bbc6d6-539e-4a01-998f-d04cf0b902dc
+		summarizeBy: none
+		sourceColumn: descricao
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_atrasado
+		dataType: int64
+		formatString: 0
+		lineageTag: 75b26122-30e3-487f-b7fa-67bf53bab396
+		summarizeBy: sum
+		sourceColumn: dias_atrasado
+
+		annotation SummarizationSetBy = Automatic
+
+	column ponteiro
+		dataType: string
+		lineageTag: 1e7e53aa-097b-439d-ae52-8326ac61ef43
+		summarizeBy: none
+		sourceColumn: ponteiro
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_set
+		dataType: string
+		lineageTag: 0119e9cf-c191-42f0-bf4b-a33433605ff0
+		summarizeBy: none
+		sourceColumn: id_set
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent
+		dataType: string
+		lineageTag: 7602433e-dacb-4604-9a2e-3853dfb53c59
+		summarizeBy: none
+		sourceColumn: parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column cooperativa
+		dataType: string
+		lineageTag: 78dc24be-1b65-49d0-9a18-34926a83a6da
+		summarizeBy: none
+		sourceColumn: cooperativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column matri&coop
+		dataType: string
+		lineageTag: 3998b8df-b931-4d62-bffe-ee5deeb30b16
+		summarizeBy: none
+		sourceColumn: matri&coop
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_boleto
+		dataType: string
+		lineageTag: 6dc622fe-7ecc-425f-bfe6-bc8840750ab8
+		summarizeBy: none
+		sourceColumn: numero_boleto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nosso_numero
+		dataType: string
+		lineageTag: 5cbd0139-9411-4c71-b7d1-70eb8ebdb025
+		summarizeBy: none
+		sourceColumn: nosso_numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: ccd27973-dc57-4500-8fea-95148db39873
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UNIDADE ABREV.' = SUBSTITUTE(fInadimplencia[unidade], "UNIDADE ", "")
+		lineageTag: 2ddc5939-8aec-4bfa-a922-f3dfac29163d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column placa
+		dataType: string
+		lineageTag: 8219b0aa-f40e-4e31-ac7a-927ec082040b
+		summarizeBy: none
+		sourceColumn: placa
+
+		annotation SummarizationSetBy = Automatic
+
+	column chassi
+		dataType: string
+		lineageTag: c21ff13a-cb7d-4447-9483-adca51b793b8
+		summarizeBy: none
+		sourceColumn: chassi
+
+		annotation SummarizationSetBy = Automatic
+
+	column matricula
+		dataType: string
+		lineageTag: 2eea13f7-64ae-4fb7-866d-068ec747d0fa
+		summarizeBy: none
+		sourceColumn: matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column conjunto
+		dataType: string
+		lineageTag: 604da6ef-e083-4fc1-9c9c-323a9f80c766
+		summarizeBy: none
+		sourceColumn: conjunto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fInadimplencia = m
+		mode: import
+		source = ```
+				let
+				    Source = Excel.Workbook(Web.Contents("https://unusholding.sharepoint.com/sites/analisededados/Arquivos%20em%20excel/Relat%C3%B3rio%20de%20Inadimpl%C3%AAncia/relatorio_inadimplencia.xlsx"), null, true),
+				    inadimplentes_Sheet = Source{[Item="inadimplentes",Kind="Sheet"]}[Data],
+				
+				    #"Promoted Headers" = Table.PromoteHeaders(inadimplentes_Sheet, [PromoteAllScalars=true]),
+				
+				
+				    #"Filtered Rows" = Table.SelectRows(#"Promoted Headers", each [id_set] <> null and [id_set] <> ""),
+				    
+				    #"Added Custom" = Table.AddColumn(#"Filtered Rows", "cooperativa_num", each if [cooperativa] = "Segtruck" then 1
+				else if [cooperativa] = "Stcoop" then 2
+				else if [cooperativa] = "Viavante" then 3
+				else null),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom",{{"data_vencimento", type date}, {"codigo_cadastro", type text}, {"associado", type text}, {"grupo", type text}, {"aplicacao_financeira", type text}, {"data_emissao", type date}, {"valor_titulo", type number}, {"codigo", type text}, {"unidade", type text}, {"descricao", type text}, {"dias_atrasado", Int64.Type}, {"ponteiro", type text}, {"id_set", type text}, {"parent", type text}, {"cooperativa", type text}, {"cooperativa_num", type text}}), //pedido supervisor
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type3", "id_conjunto", each [parent]&[id_set]&[cooperativa_num]),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom1",{{"id_conjunto", type text}}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Changed Type2",{"id_conjunto", "codigo_cadastro", "associado", "grupo", "aplicacao_financeira", "data_emissao", "data_vencimento", "valor_titulo", "codigo", "descricao", "dias_atrasado", "ponteiro", "id_set", "parent", "cooperativa", "cooperativa_num"}),
+				    #"Added Custom2" = Table.AddColumn(#"Reordered Columns", "matri&coop", each [parent] & " " & [associado]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom2",{{"nosso_numero", type text}, {"numero_boleto", type text}})
+				in
+				    #"Changed Type"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

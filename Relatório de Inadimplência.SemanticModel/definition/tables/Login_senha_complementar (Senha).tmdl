@@ -1,0 +1,29 @@
+table 'Login_senha_complementar (Senha)'
+	lineageTag: 0498c388-b17e-4634-907a-eed53889d8c4
+
+	column Senha
+		dataType: string
+		lineageTag: e2ca5dd0-0dfd-4d7f-87d9-439b7631472c
+		summarizeBy: none
+		sourceColumn: Senha
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Login_senha_complementar (Senha)' = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"75c119ab-94cf-4e72-ab1f-c379cf8abf2d" = Workspaces{[workspaceId="75c119ab-94cf-4e72-ab1f-c379cf8abf2d"]}[Data],
+				    #"0fafb22c-f925-4309-a970-d799b11d7304" = #"75c119ab-94cf-4e72-ab1f-c379cf8abf2d"{[dataflowId="0fafb22c-f925-4309-a970-d799b11d7304"]}[Data],
+				    Login_senha_complementar_ = #"0fafb22c-f925-4309-a970-d799b11d7304"{[entity="Login_senha_complementar",version=""]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(Login_senha_complementar_,{"Dash", "Unidade", "Acesso diferênciado?", "Login"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

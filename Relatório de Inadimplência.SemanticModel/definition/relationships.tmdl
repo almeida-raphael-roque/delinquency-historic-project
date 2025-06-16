@@ -1,0 +1,43 @@
+relationship 5b6053d6-454e-41fd-a3e1-d8adddb206fa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'data att'.'data att'
+	toColumn: LocalDateTable_69cead44-292e-47db-849e-c301d5b9da69.Date
+
+relationship 8ae72453-a37c-44b2-a01b-d1bf29e98126
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fInadimplencia.data_emissao
+	toColumn: LocalDateTable_e79cf89e-3a58-427e-a47e-b3d3742f0097.Date
+
+relationship d8ecf59c-51ca-8509-872d-4214c8622a13
+	toCardinality: many
+	fromColumn: Login_senha.Login
+	toColumn: 'Login_senha_complementar (Login)'.Login
+
+relationship 9b8f91a2-6029-fb7f-358b-0df7ff5c5e1b
+	toCardinality: many
+	fromColumn: Login_senha.Senha
+	toColumn: 'Login_senha_complementar (Senha)'.Senha
+
+relationship 1f53e430-f58c-4c38-8574-e43ba76ee0d1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fPagamentos.data_vencimento
+	toColumn: LocalDateTable_4b9b2eeb-a2c9-4f64-8a95-87e771c52f41.Date
+
+relationship 144d0c5c-b173-4a36-bbe8-67f538e4624e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fAtivos.data_ativacao
+	toColumn: LocalDateTable_8a75fea1-f775-4a3d-84d5-6d4e28bf2062.Date
+
+relationship a4810f7a-0257-4e96-97f6-b30c18f8428e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: _dCalendario.Date
+	toColumn: LocalDateTable_13a6b7d6-f8ec-40fd-8805-5bf7f36b01e5.Date
+
+relationship df2c2eda-6465-e25b-3ef9-78577efe26c3
+	fromColumn: fInadimplencia.data_vencimento
+	toColumn: _dCalendario.Date
+
+relationship f9bd44bf-f37e-75a5-108b-24ee58aade6c
+	fromColumn: fPagamentos.data_baixa
+	toColumn: _dCalendario.Date
+

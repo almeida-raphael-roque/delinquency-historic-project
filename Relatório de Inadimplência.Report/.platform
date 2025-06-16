@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Relatório de Inadimplência"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "92d64ca7-527a-43d3-9db6-e59d86b6847a"
+  }
+}

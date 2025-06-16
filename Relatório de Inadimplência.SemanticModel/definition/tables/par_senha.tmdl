@@ -1,0 +1,26 @@
+table par_senha
+	lineageTag: 64170fa7-e5d7-46ce-95ea-2c6ffe5ab994
+
+	measure 'Valor par_senha' = SELECTEDVALUE('par_senha'[par_senha])
+		formatString: 0
+		lineageTag: c8bc80e7-d68e-4fdd-aa2c-4470f657b2e0
+
+	column par_senha
+		formatString: 0
+		lineageTag: d6a281dc-118c-4921-83f6-7e4443594a97
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition par_senha = calculated
+		mode: import
+		source = GENERATESERIES(1, 9999, 1)
+
+	annotation PBI_Id = 313dd227ed5b4bcc84e676bd7ddb1e78
+

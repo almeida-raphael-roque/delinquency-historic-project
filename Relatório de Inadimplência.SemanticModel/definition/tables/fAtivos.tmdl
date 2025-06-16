@@ -1,0 +1,66 @@
+table fAtivos
+	lineageTag: 2b3ff236-7673-4db0-b487-370c2089cbd4
+
+	column id
+		dataType: string
+		lineageTag: ce5fafba-0786-4bf6-bfd5-ba7086fffee9
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column matricula
+		dataType: string
+		lineageTag: 1a5ba6c2-e3bb-4933-bfbe-181e0664afdb
+		summarizeBy: none
+		sourceColumn: matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column conjunto
+		dataType: string
+		lineageTag: f75a4d6f-1b71-4cb0-9337-c5664689606e
+		summarizeBy: none
+		sourceColumn: conjunto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cooperativa
+		dataType: string
+		lineageTag: dc634b6c-9a68-4124-8c92-caf267805d03
+		summarizeBy: none
+		sourceColumn: cooperativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_ativacao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 58462457-05dd-48bd-9010-ad5c37aefe53
+		summarizeBy: none
+		sourceColumn: data_ativacao
+
+		variation Variation
+			isDefault
+			relationship: 144d0c5c-b173-4a36-bbe8-67f538e4624e
+			defaultHierarchy: LocalDateTable_8a75fea1-f775-4a3d-84d5-6d4e28bf2062.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition fAtivos = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://unusholding.sharepoint.com/sites/analisededados/Arquivos%20em%20excel/Relat%C3%B3rio%20de%20Inadimpl%C3%AAncia/conjuntos_clientes_ativos.xlsx"), null, true),
+				    conjuntos_clientes_ativos_Sheet = Source{[Item="conjuntos_clientes_ativos",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(conjuntos_clientes_ativos_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", type text}, {"matricula", type text}, {"conjunto", type text}, {"cooperativa", type text}, {"data_ativacao", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

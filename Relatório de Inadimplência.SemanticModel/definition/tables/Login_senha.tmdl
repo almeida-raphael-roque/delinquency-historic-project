@@ -1,0 +1,60 @@
+table Login_senha
+	lineageTag: d11e0616-af03-4c99-8c5d-976306dcaf2a
+
+	column Dash
+		dataType: string
+		lineageTag: 0f9b4c42-3b93-44de-aac1-941c374aba82
+		summarizeBy: none
+		sourceColumn: Dash
+
+		annotation SummarizationSetBy = Automatic
+
+	column Login
+		dataType: string
+		lineageTag: e640506a-b317-44c3-ace5-2df57f3e4ba9
+		summarizeBy: none
+		sourceColumn: Login
+
+		annotation SummarizationSetBy = Automatic
+
+	column Senha
+		dataType: string
+		lineageTag: fe565b85-fae8-44b3-9ee2-bbf660c9d7d4
+		summarizeBy: none
+		sourceColumn: Senha
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidade
+		dataType: string
+		lineageTag: dfcab85b-7c6a-4547-bb38-e607c9f8c71e
+		summarizeBy: none
+		sourceColumn: Unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Acesso diferênciado?'
+		dataType: string
+		lineageTag: 28aca278-52f6-4db4-ba98-4cda576cb048
+		summarizeBy: none
+		sourceColumn: Acesso diferênciado?
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Login_senha = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"75c119ab-94cf-4e72-ab1f-c379cf8abf2d" = Workspaces{[workspaceId="75c119ab-94cf-4e72-ab1f-c379cf8abf2d"]}[Data],
+				    #"0fafb22c-f925-4309-a970-d799b11d7304" = #"75c119ab-94cf-4e72-ab1f-c379cf8abf2d"{[dataflowId="0fafb22c-f925-4309-a970-d799b11d7304"]}[Data],
+				    Login_senha_ = #"0fafb22c-f925-4309-a970-d799b11d7304"{[entity="Login_senha",version=""]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(Login_senha_, each ([Dash] = "Inadimplência"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

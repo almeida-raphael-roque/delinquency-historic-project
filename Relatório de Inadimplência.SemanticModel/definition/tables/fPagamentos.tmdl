@@ -1,0 +1,142 @@
+table fPagamentos
+	lineageTag: fce9bb06-9581-400d-9850-0593dd260571
+
+	column cooperativa
+		dataType: string
+		lineageTag: 5c0b44ae-8069-499e-8897-188eacaa3505
+		summarizeBy: none
+		sourceColumn: cooperativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column aplicacao
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c3510ad-9e69-4cf0-8dd1-569bc82310d0
+		summarizeBy: sum
+		sourceColumn: aplicacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column ponteiro
+		dataType: int64
+		formatString: 0
+		lineageTag: 79c0f2e9-0c8f-4f25-afdb-74080eac552d
+		summarizeBy: sum
+		sourceColumn: ponteiro
+
+		annotation SummarizationSetBy = Automatic
+
+	column matricula
+		dataType: int64
+		formatString: 0
+		lineageTag: 91ebb7bb-89b9-4f60-a634-9eb2d78de0c7
+		summarizeBy: sum
+		sourceColumn: matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column conjunto
+		dataType: int64
+		formatString: 0
+		lineageTag: 75c09213-58a1-49e0-b671-4c483c45e39c
+		summarizeBy: sum
+		sourceColumn: conjunto
+
+		annotation SummarizationSetBy = Automatic
+
+	column unidade
+		dataType: string
+		lineageTag: 4d723825-cdf8-42ed-b232-4c793ffc695a
+		summarizeBy: none
+		sourceColumn: unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column associado
+		dataType: string
+		lineageTag: 61f427d1-3c33-4a63-9bc1-8a6c140938f9
+		summarizeBy: none
+		sourceColumn: associado
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_baixa
+		dataType: double
+		lineageTag: 00cb8ff5-8622-4500-9f7d-821ff71f2b05
+		summarizeBy: sum
+		sourceColumn: valor_baixa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column data_baixa
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3d080c5b-d6b9-4d20-9d1b-b60e9bfd9102
+		summarizeBy: none
+		sourceColumn: data_baixa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column data_vencimento
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d402f44f-a003-4a4a-a81b-a783bd2eb7d9
+		summarizeBy: none
+		sourceColumn: data_vencimento
+
+		variation Variation
+			isDefault
+			relationship: 1f53e430-f58c-4c38-8574-e43ba76ee0d1
+			defaultHierarchy: LocalDateTable_4b9b2eeb-a2c9-4f64-8a95-87e771c52f41.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dias_atraso
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c60e628-d7bc-410d-a917-6bfaf98a6bde
+		summarizeBy: sum
+		sourceColumn: dias_atraso
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_boleto
+		dataType: string
+		lineageTag: 1427d143-9649-485b-a68c-fcca2994c06b
+		summarizeBy: none
+		sourceColumn: numero_boleto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nosso_numero
+		dataType: string
+		lineageTag: a46ceea2-b372-44e1-ba50-29c0b3712628
+		summarizeBy: none
+		sourceColumn: nosso_numero
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fPagamentos = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://unusholding.sharepoint.com/sites/analisededados/Arquivos%20em%20excel/Relat%C3%B3rio%20de%20Inadimpl%C3%AAncia/relatorio_pagamentos.xlsx"), null, true),
+				    faturas_baixadas_Sheet = Source{[Item="faturas_baixadas",Kind="Sheet"]}[Data],
+				
+				
+				    #"Promoted Headers" = Table.PromoteHeaders(faturas_baixadas_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"cooperativa", type text}, {"aplicacao", Int64.Type}, {"ponteiro", Int64.Type}, {"matricula", Int64.Type}, {"conjunto", Int64.Type}, {"unidade", type text}, {"associado", type text}, {"valor_baixa", type number}, {"data_baixa", type date}, {"data_vencimento", type date}, {"dias_atraso", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
