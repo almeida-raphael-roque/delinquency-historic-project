@@ -9,7 +9,7 @@ table _medidas_
 			
 			// contratos novos e em renovação também estão em vigência
 		formatString: #,0.00
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: def00a3a-3fee-46fb-b238-6d08f05db056
 
 	measure 'Qtd Cooperados Inadimplentes' =
@@ -20,7 +20,7 @@ table _medidas_
 			
 			// contratos novos e em renovação também estão em vigência
 		formatString: #,0
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: bfee6dfd-e087-4a5e-817f-52aec51ec9d1
 
 	measure 'Qtd Conjuntos Inadimplentes' = ```
@@ -35,44 +35,8 @@ table _medidas_
 			
 			```
 		formatString: #,0
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: 407ba84c-1546-455d-8fd0-0e644c04a63c
-
-	measure 'Média Diária Cancelados' = ```
-			
-			AVERAGEX(
-			VALUES(fCancelamentos[data_cancelamento]),
-			[Qtd Cancelados]
-			)
-			
-			```
-		formatString: 0
-		displayFolder: _cancelamento
-		lineageTag: 62ce4a29-4381-44ea-8f9d-289f1f9e9a2c
-
-		annotation PBI_FormatHint = {"isDecimal":true}
-
-	measure 'Qtd Cancelados' = DISTINCTCOUNT(fCancelamentos[conjunto])
-		formatString: #,0
-		displayFolder: _cancelamento
-		lineageTag: ce25dab6-4029-4523-bd3f-49e21f8077a7
-
-	measure '% Cancelados' =
-			
-			DIVIDE([Qtd Cancelados],
-			DISTINCTCOUNT(fVendas[id_conjunto])
-			)
-		formatString: 0%;-0%;0%
-		displayFolder: _cancelamento
-		lineageTag: c2abb83a-49d7-42d9-ab83-8ae3f7f01526
-
-	measure 'Qtd Cooperados Cancelados' =
-			
-			DISTINCTCOUNT(
-			    fInadimplencia[PARENT])
-		formatString: 0
-		displayFolder: _cancelamento
-		lineageTag: df94e603-32b2-4ee8-a43a-86a96581196a
 
 	measure 'botão login' = ```
 			
@@ -93,11 +57,6 @@ table _medidas_
 			```
 		lineageTag: 6a28e40f-e6dc-4cf7-ba0a-b09c128db5ad
 
-	measure 'Qtd Conjuntos' = DISTINCTCOUNT(fVendas[id_conjunto])
-		formatString: #,0
-		displayFolder: _inadimplência
-		lineageTag: 2572c107-c80c-4562-a511-1de6aaa9888c
-
 	measure 'Conjuntos (%)' =
 			
 			DIVIDE(
@@ -105,19 +64,14 @@ table _medidas_
 			    [Total Conjuntos]
 			)
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: ac80408f-ad07-4b21-968c-29d2888c2d81
-
-	measure 'Qtd Cooperados' = DISTINCTCOUNT(fVendas[id_cliente])
-		formatString: #,0
-		displayFolder: _inadimplência
-		lineageTag: af414e1f-944f-43cb-9c6d-f0594c6c7659
 
 	measure 'Cooperados (%)' =
 			
 			DIVIDE([Qtd Cooperados Inadimplentes], [Total Cooperados])
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: a9555828-4566-43a9-9ec4-2024537b8720
 
 	measure 'Ranking TopN' = ```
@@ -153,38 +107,6 @@ table _medidas_
 		displayFolder: _inadimplência
 		lineageTag: e88e4455-2c25-4fcb-a90d-82a769ada3bc
 
-	measure teste = MAX(_dCalendario[Mes Counter])
-		formatString: 0
-		displayFolder: _inadimplência
-		lineageTag: 64bc8572-cb77-4167-9b81-9fe04ddf5e9b
-
-	measure 'Mês passado' = ```
-			
-			UPPER(
-			    FORMAT(
-			        CALCULATE(
-			            MAX(_dCalendario[Date]),
-			            DATEADD(_dCalendario[Date],-1,MONTH)
-			        ),
-			"   MMMM")
-			) & ": "
-			
-			    
-			```
-		displayFolder: _inadimplência
-		lineageTag: 46d45009-8895-4e74-8870-f353a98dd149
-
-	measure 'Inadimp. LM' =
-			
-			CALCULATE(
-			    [Total Inadimplência],
-			    _dCalendario[Mes Counter] = MAX(_dCalendario[Mes Counter])-1
-			)
-		displayFolder: _inadimplência
-		lineageTag: 317cc17d-ba3e-4fda-aaf3-62d8ac727786
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Variação de Inadimplência' = ```
 			
 			VAR vILM = 
@@ -207,36 +129,12 @@ table _medidas_
 		displayFolder: _inadimplência
 		lineageTag: ae294031-84df-4092-9727-84604b384783
 
-	measure 'Detalhe Variação' =
-			
-			IF(
-			    [Variação de Inadimplência]>0,
-			    " ▲"," ▼"
-			)
-		displayFolder: _inadimplência
-		lineageTag: 1755c27a-f1b2-4cce-9a2b-703eafc97c76
-
-	measure 'Cor Variação' = ```
-			
-			IF(
-			    [Variação de Inadimplência]>0,
-			    "RED","GREEN"
-			)
-			
-			```
-		displayFolder: _inadimplência
-		lineageTag: c9d738a4-f1b1-4d54-9853-edc4fb6afde1
-
-	measure 'Qtd Vencimentos' = COUNTROWS(fPagamentos)
-		formatString: 0
-		lineageTag: 37f7c1f7-6956-4994-aa7c-f5be59b9be3a
-
 	measure 'Total Pagamentos' = ```
 			
 			    SUM(fPagamentos[valor_baixa])
 			
 			```
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: ed10b9f3-d971-4d6b-a9ff-0a5d4b9863da
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -248,11 +146,11 @@ table _medidas_
 			    [Total Valores]
 			)
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: e215deb3-152d-4275-ae06-2d1954dee6f7
 
 	measure 'Total Valores' = [Total Pagamentos]+[Total Inadimplência]
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: 2ad141c1-6d50-4062-90e1-496223d145e6
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -264,7 +162,7 @@ table _medidas_
 			    ALL(_dCalendario)
 			)
 		formatString: #,0
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: f27b4674-d1b7-44af-9b54-a7deb69dc859
 
 	measure 'Total Cooperados' =
@@ -273,7 +171,7 @@ table _medidas_
 			    ALL(_dCalendario)
 			)
 		formatString: #,0
-		displayFolder: _inadimplência
+		displayFolder: _inadimplência\_principais
 		lineageTag: 1ec0a1b9-e45c-4e97-8a45-33bda2b8552d
 
 	partition _medidas_ = m

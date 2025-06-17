@@ -1447,90 +1447,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "v_medidas2_medidas2.méd_conj_inad_ano": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_medidas_",
-			          "ConceptualProperty": "Média Diária Cancelados"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "média diária cancelados": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "v_medidas2_medidas2.quantidade_de_cancelados": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_medidas_",
-			          "ConceptualProperty": "Qtd Cancelados"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "qtd cancelados": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "v_medidas2_medidas2.cancelados": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_medidas_",
-			          "ConceptualProperty": "% Cancelados"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "% cancelados": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "percentage cancelado": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "pct cancelado": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        }
-			      ]
-			    },
-			    "v_medidas2_medidas2.qtd_de_cooperados_cancelados": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_medidas_",
-			          "ConceptualProperty": "Qtd Cooperados Cancelados"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "qtd cooperados cancelados": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "f_valore.id_conjunto": {
 			      "Definition": {
 			        "Binding": {
@@ -2985,22 +2901,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "v_medidas2_medidas2.qtd_conjuntos": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_medidas_",
-			          "ConceptualProperty": "Qtd Conjuntos"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "qtd conjuntos": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "v_medidas2_medidas2.conjuntos": {
 			      "Definition": {
 			        "Binding": {
@@ -3024,22 +2924,6 @@ cultureInfo pt-BR
 			      "Units": [
 			        "percentage",
 			        "%"
-			      ]
-			    },
-			    "v_medidas2_medidas2.qtd_cooperados": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_medidas_",
-			          "ConceptualProperty": "Qtd Cooperados"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "qtd cooperados": {
-			            "State": "Generated"
-			          }
-			        }
 			      ]
 			    },
 			    "v_medidas2_medidas2.cooperados": {
