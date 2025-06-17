@@ -148,6 +148,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2704.4011752547567,
+            "y": 390.33287604531392
+          },
+          "nodeIndex": "fFaturas",
+          "nodeLineageTag": "f4968d33-201d-47e3-9b33-bc73b47e096d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",

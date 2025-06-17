@@ -1,0 +1,173 @@
+table fFaturas
+	lineageTag: f4968d33-201d-47e3-9b33-bc73b47e096d
+
+	column matricula
+		dataType: string
+		lineageTag: 8deeeba3-b056-4947-9e93-c74872ffca82
+		summarizeBy: none
+		sourceColumn: matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column conjunto
+		dataType: string
+		lineageTag: 8adc5973-6983-4070-a6a6-31314a85c855
+		summarizeBy: none
+		sourceColumn: conjunto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cooperativa
+		dataType: string
+		lineageTag: ff025788-f38f-4798-a1ae-0a82d2354ee7
+		summarizeBy: none
+		sourceColumn: cooperativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column ponteiro
+		dataType: string
+		lineageTag: d04f0460-c53f-43eb-8e4a-0e72dbd6c3a8
+		summarizeBy: none
+		sourceColumn: ponteiro
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_boleto
+		dataType: string
+		lineageTag: a366d48b-2d80-439b-aa70-610bbf6ea16f
+		summarizeBy: none
+		sourceColumn: numero_boleto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nosso_numero
+		dataType: string
+		lineageTag: 5ddce794-58b4-4dab-86de-79f7c8ce4e23
+		summarizeBy: none
+		sourceColumn: nosso_numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column unidade
+		dataType: string
+		lineageTag: 28bfd32b-5641-4904-bcb4-562c7e691690
+		summarizeBy: none
+		sourceColumn: unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column associado
+		dataType: string
+		lineageTag: 391d93fb-32e9-4df3-9898-3b0d80993547
+		summarizeBy: none
+		sourceColumn: associado
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_vencimento
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fdf4f22e-d020-4447-b644-f99b80c0520c
+		summarizeBy: none
+		sourceColumn: data_vencimento
+
+		variation Variation
+			isDefault
+			relationship: 714dfca0-959a-4321-ad12-67d2dc381fd4
+			defaultHierarchy: LocalDateTable_c8132662-f5ef-4d9f-925b-8309af56b7db.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column data_baixa
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 62780a9c-55d6-4a4d-a5a1-a2a56d4680cc
+		summarizeBy: none
+		sourceColumn: data_baixa
+
+		variation Variation
+			isDefault
+			relationship: e67dd8da-688b-4c72-bac1-c1ee0460ef81
+			defaultHierarchy: LocalDateTable_87afbc4b-2b42-48ff-9e6d-f3ebff399f84.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column valor_titulo
+		dataType: double
+		lineageTag: 3258a820-1d7a-48b3-91de-070baf59c507
+		summarizeBy: sum
+		sourceColumn: valor_titulo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor_baixa
+		dataType: int64
+		formatString: 0
+		lineageTag: 03ea00a5-601b-43d2-a7a9-e268a7eaee02
+		summarizeBy: sum
+		sourceColumn: valor_baixa
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_emissao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 80ab3f98-eabf-49b9-8de7-d710baee78ef
+		summarizeBy: none
+		sourceColumn: data_emissao
+
+		variation Variation
+			isDefault
+			relationship: 9d07edc9-ed6c-4c71-a1fe-75a3e538c92e
+			defaultHierarchy: LocalDateTable_2d7911fb-ab61-4850-886f-04e097ee7d33.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column data_atualizacao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 29997e09-0668-46d1-8590-6e4c302dadc9
+		summarizeBy: none
+		sourceColumn: data_atualizacao
+
+		variation Variation
+			isDefault
+			relationship: b557a41b-ccd5-480c-b72d-dd86500d81dc
+			defaultHierarchy: LocalDateTable_7772cc11-2c82-4fdf-98e0-0d60b8b5c69c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column situacao
+		dataType: string
+		lineageTag: c7be1cd6-7da9-4d6f-8539-a4c47f7803b0
+		summarizeBy: none
+		sourceColumn: situacao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fFaturas = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://unusholding.sharepoint.com/sites/analisededados/Arquivos%20em%20excel/Relat%C3%B3rio%20de%20Inadimpl%C3%AAncia/historico_faturas.xlsx"), null, true),
+				    historico_faturas_Sheet = Source{[Item="historico_faturas",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(historico_faturas_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"matricula", type text}, {"conjunto", type text}, {"cooperativa", type text}, {"ponteiro", type text}, {"numero_boleto", type text}, {"nosso_numero", type text}, {"unidade", type text}, {"associado", type text}, {"data_vencimento", type date}, {"data_baixa", type date}, {"valor_titulo", type number}, {"valor_baixa", Int64.Type}, {"data_emissao", type date}, {"data_atualizacao", type date}, {"situacao", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

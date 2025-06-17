@@ -41,3 +41,27 @@ relationship f9bd44bf-f37e-75a5-108b-24ee58aade6c
 	fromColumn: fPagamentos.data_baixa
 	toColumn: _dCalendario.Date
 
+relationship 714dfca0-959a-4321-ad12-67d2dc381fd4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fFaturas.data_vencimento
+	toColumn: LocalDateTable_c8132662-f5ef-4d9f-925b-8309af56b7db.Date
+
+relationship e67dd8da-688b-4c72-bac1-c1ee0460ef81
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fFaturas.data_baixa
+	toColumn: LocalDateTable_87afbc4b-2b42-48ff-9e6d-f3ebff399f84.Date
+
+relationship 9d07edc9-ed6c-4c71-a1fe-75a3e538c92e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fFaturas.data_emissao
+	toColumn: LocalDateTable_2d7911fb-ab61-4850-886f-04e097ee7d33.Date
+
+relationship b557a41b-ccd5-480c-b72d-dd86500d81dc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fFaturas.data_atualizacao
+	toColumn: LocalDateTable_7772cc11-2c82-4fdf-98e0-0d60b8b5c69c.Date
+
+relationship AutoDetected_a2aa10b6-b265-4ac0-939f-4df5b3a3fb5b
+	fromColumn: fFaturas.ponteiro
+	toColumn: fInadimplencia.ponteiro
+

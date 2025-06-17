@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["fInadimplencia","fPagamentos","fAtivos","_medidas","data att","_medidas_","TopN Table","Login_senha","Login_senha_complementar (Login)","Login_senha_complementar (Senha)"]
+annotation PBI_QueryOrder = ["fInadimplencia","fPagamentos","fFaturas","fAtivos","_medidas","data att","_medidas_","TopN Table","Login_senha","Login_senha_complementar (Login)","Login_senha_complementar (Senha)"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -31,6 +31,11 @@ ref table LocalDateTable_4b9b2eeb-a2c9-4f64-8a95-87e771c52f41
 ref table fAtivos
 ref table LocalDateTable_8a75fea1-f775-4a3d-84d5-6d4e28bf2062
 ref table LocalDateTable_13a6b7d6-f8ec-40fd-8805-5bf7f36b01e5
+ref table fFaturas
+ref table LocalDateTable_c8132662-f5ef-4d9f-925b-8309af56b7db
+ref table LocalDateTable_87afbc4b-2b42-48ff-9e6d-f3ebff399f84
+ref table LocalDateTable_2d7911fb-ab61-4850-886f-04e097ee7d33
+ref table LocalDateTable_7772cc11-2c82-4fdf-98e0-0d60b8b5c69c
 
 ref cultureInfo pt-BR
 
