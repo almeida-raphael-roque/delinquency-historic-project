@@ -174,6 +174,25 @@ table _medidas_
 		displayFolder: _inadimplência\_principais
 		lineageTag: 1ec0a1b9-e45c-4e97-8a45-33bda2b8552d
 
+	measure Inadimplência = SUM(fFaturas[valor_titulo])
+		displayFolder: _inadimplência\_principais\historico
+		lineageTag: 0752a0dc-461b-4c90-bfb9-bee56f7ab6bd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Quitação de Inadimp.' = SUM(fFaturas[valor_baixa])
+		formatString: 0
+		displayFolder: _inadimplência\_principais\historico
+		lineageTag: a030e8b3-52b7-46eb-b773-3565b2470283
+
+	measure '% Quitado' =
+			DIVIDE(
+			    [Quitação de Inadimp.],
+			    [Inadimplência])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _inadimplência\_principais\historico
+		lineageTag: baface00-1c5e-426d-8923-5a313fe93f52
+
 	partition _medidas_ = m
 		mode: import
 		source =

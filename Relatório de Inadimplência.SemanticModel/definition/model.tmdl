@@ -35,7 +35,6 @@ ref table fFaturas
 ref table LocalDateTable_c8132662-f5ef-4d9f-925b-8309af56b7db
 ref table LocalDateTable_87afbc4b-2b42-48ff-9e6d-f3ebff399f84
 ref table LocalDateTable_2d7911fb-ab61-4850-886f-04e097ee7d33
-ref table LocalDateTable_7772cc11-2c82-4fdf-98e0-0d60b8b5c69c
 
 ref cultureInfo pt-BR
 

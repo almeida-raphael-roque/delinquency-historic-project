@@ -67,7 +67,7 @@ table fFaturas
 
 	column data_vencimento
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: fdf4f22e-d020-4447-b644-f99b80c0520c
 		summarizeBy: none
 		sourceColumn: data_vencimento
@@ -83,7 +83,7 @@ table fFaturas
 
 	column data_baixa
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 62780a9c-55d6-4a4d-a5a1-a2a56d4680cc
 		summarizeBy: none
 		sourceColumn: data_baixa
@@ -118,7 +118,7 @@ table fFaturas
 
 	column data_emissao
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 80ab3f98-eabf-49b9-8de7-d710baee78ef
 		summarizeBy: none
 		sourceColumn: data_emissao
@@ -134,15 +134,10 @@ table fFaturas
 
 	column data_atualizacao
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 29997e09-0668-46d1-8590-6e4c302dadc9
 		summarizeBy: none
 		sourceColumn: data_atualizacao
-
-		variation Variation
-			isDefault
-			relationship: b557a41b-ccd5-480c-b72d-dd86500d81dc
-			defaultHierarchy: LocalDateTable_7772cc11-2c82-4fdf-98e0-0d60b8b5c69c.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 

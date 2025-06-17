@@ -56,12 +56,7 @@ relationship 9d07edc9-ed6c-4c71-a1fe-75a3e538c92e
 	fromColumn: fFaturas.data_emissao
 	toColumn: LocalDateTable_2d7911fb-ab61-4850-886f-04e097ee7d33.Date
 
-relationship b557a41b-ccd5-480c-b72d-dd86500d81dc
-	joinOnDateBehavior: datePartOnly
+relationship 84354e32-a6f9-8a77-98d3-025e51cbe9b4
 	fromColumn: fFaturas.data_atualizacao
-	toColumn: LocalDateTable_7772cc11-2c82-4fdf-98e0-0d60b8b5c69c.Date
-
-relationship AutoDetected_a2aa10b6-b265-4ac0-939f-4df5b3a3fb5b
-	fromColumn: fFaturas.ponteiro
-	toColumn: fInadimplencia.ponteiro
+	toColumn: _dCalendario.Date
 
